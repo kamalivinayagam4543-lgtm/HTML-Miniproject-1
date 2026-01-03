@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Java Quiz Competition</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2fff2;
+      text-align: center;
+    }
+    header {
+      background-color: dodgerblue;
+      color: crimson;
+      padding: 18px;
+    }
+    .quiz-container {
+      margin: 20px auto;
+      width: 60%;
+      text-align: left;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px #aaa;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: dodgerblue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkblue;
+    }
+    #result {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>WELCOME TO QUIZ COMPETITION</h1>
+    <p>Test your knowledge about Java in the technology field</p>
+  </header>
+
+  <div class="quiz-container">
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Which keyword is used to inherit a class in Java?</p>
+        <input type="radio" name="q1" value="extends"> extends<br>
+        <input type="radio" name="q1" value="implements"> implements<br>
+        <input type="radio" name="q1" value="inherit"> inherit<br>
+      </div>
+
+      <div class="question">
+        <p>2. Which of these is not a Java primitive type?</p>
+        <input type="radio" name="q2" value="int"> int<br>
+        <input type="radio" name="q2" value="boolean"> boolean<br>
+        <input type="radio" name="q2" value="string"> string<br>
+      </div>
+
+      <div class="question">
+        <p>3. What is the default value of a boolean variable in Java?</p>
+        <input type="radio" name="q3" value="true"> true<br>
+        <input type="radio" name="q3" value="false"> false<br>
+        <input type="radio" name="q3" value="null"> null<br>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">Submit Quiz</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Updated Questions</p>
+  </footer>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+      let total = 3;
+
+      // Correct answers
+      let answers = {
+        q1: "extends",
+        q2: "string",
+        q3: "false"
+      };
+
+      for (let q in answers) {
+        let selected = document.querySelector('input[name="'+q+'"]:checked');
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+
+      document.getElementById("result").innerHTML =
+        "You scored " + score + " out of " + total;
+    }
+  </script>
+  <a href="thank you.html">About</a>
+</body>
+</html>
